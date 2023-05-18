@@ -1,0 +1,23 @@
+
+h1. GeoWS Technical Documents
+
+h2. "GeoWS Service Template":GeoWS-Service-Template.pdf
+
+The Service Template specifies guidelines and commonalities and guidelines defining behavior and presentation of a GeoWS web service interface.  Most GeoWS-style web services are expected to offer functionality beyond what is specified in this document, such as domain-specific formats, data-specific parameters, organization-specific context-paths, etc.
+
+h2. "GeoCSV":https://github.com/EarthScope/GeoCSV - Tabular text formatting for geoscience data
+
+The GeoCSV format is a dialect of the model developed by the W3C's "CSV on the Web Working Group":http://www.w3.org/2013/csvw/wiki/Main_Page.
+
+The headers allow for common metadata to be included with a tabular text dataset and the specification is extensible, allowing for domain-specific headers to be added as needed.  The defined annotations are designed for use as additions to exisiting text data or new structured text data.
+
+h2. AGU - Dec 2015
+
+Posters
+"IN13A-1810 - Building Web Service Interfaces to Geoscience data sets: EarthCube GeoWS project activities at the IRIS DMC":IN13A-1810-geows_poster.pdf
+"IN11F-1809 - GeoCSV: Tabular Text Formatting for Geoscience Data":IN11F-1809-geocsv_poster.pdf
+
+h2. EarthCube All-Hands - Jul 2016
+
+Poster
+"GeoWS: Making Services and Data Consistent":All_Hands_2016_GeoWS_poster.pdf

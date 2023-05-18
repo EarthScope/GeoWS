@@ -1,0 +1,88 @@
+
+h1. GeoWS web service endpoints
+
+h2. IRIS Data Services
+
+All services are available from "http://service.iris.edu":http://service.iris.edu
+
+Core services include:
+"http://service.iris.edu/fdsnws/station/1":http://service.iris.edu/fdsnws/station/1 - Station metadata
+"http://service.iris.edu/fdsnws/dataselect/1":http://service.iris.edu/fdsnws/dataselect/1 - Raw time series data
+"http://service.iris.edu/fdsnws/event/1":http://service.iris.edu/fdsnws/event/1 - Event (earthquake) parameters
+
+Other services include processed data (including format conversion):
+"http://service.iris.edu/irisws/timeseries/1":http://service.iris.edu/irisws/timeseries/1 - Time series data
+
+Each service has a URL Builder, e.g.:
+"http://service.iris.edu/irisws/timeseries/docs/1/builder/":http://service.iris.edu/irisws/timeseries/docs/1/builder/
+
+that can be used to produce a URL, for example a seismogram plot:
+"http://service.iris.edu/irisws/timeseries/1/query?net=IU&sta=ANMO&cha=BH...":http://service.iris.edu/irisws/timeseries/1/query?net=IU&sta=ANMO&loc=00&cha=BHZ&start=2010-02-27T06:30:00&end=2010-02-27T10:30:00&output=plot
+
+h2. LDEO - IEDA
+
+Existing services for IEDA:MGDS and IEDA:EarthChem can be found at
+"http://www.iedadata.org/services/webservices":http://www.iedadata.org/services/webservices
+
+For GeoWS we are building a new REST type service for the GMRT - Global Multi-resolution Topography Synthesis
+
+URL Builder:
+
+"http://www.marine-geo.org/tools/gridserverinfo.php#!/tools/getGMRTGrid":http://www.marine-geo.org/tools/gridserverinfo.php#!/tools/getGMRTGrid
+
+h2. Unidata
+
+Services for all Unidata Real-time Weather data streams can be found at:
+
+"http://thredds.ucar.edu/thredds/catalog.html":http://thredds.ucar.edu/thredds/catalog.html
+
+For this project, we are focusing on the following dataset/services:
+
+METAR Station Reports: "http://thredds.ucar.edu/thredds/ncss/nws/metar/ncdecoded/Metar_Station_Data_fc.cdmr/dataset.html":http://thredds.ucar.edu/thredds/ncss/nws/metar/ncdecoded/Metar_Station_Data_fc.cdmr/dataset.html
+
+NCEP GFS Global Weather Forecast (0.5 degree grid) point data selection: "http://thredds.ucar.edu/thredds/ncss/grib/NCEP/GFS/Global_0p5deg/Best/pointDataset.html":http://thredds.ucar.edu/thredds/ncss/grib/NCEP/GFS/Global_0p5deg/Best/pointDataset.html
+
+These are HTML forms that can be used to make requests to these services.
+
+h2. UNAVCO
+
+"http://www.unavco.org/data/web-services/web-services.html":http://www.unavco.org/data/web-services/web-services.html
+
+UNAVCO is working to provide unified access to its Web Services based on consistent interfaces and best practices. Currently, only a portion of UNAVCO Web Services are presented in this unified format and are listed at the above link by instrument/sensor type, e.g., GPS/GNSS or Geodetic Imaging, and data type, e.g., Metadata or Time Series Data. All of them are currently Beta services. This suite of unified web services will become more comprehensive over time.
+
+h2. SDSC - CUAHSI
+
+URL Builder:
+
+"http://water.sdsc.edu/lbrsdsc/SwaggerUI/":http://water.sdsc.edu/lbrsdsc/SwaggerUI/
+
+Notes: The URL Builder includes two sets of requests. The first set is used to discover appropriate web services and time series, given bounding box, temporal extent and terms from a taxonomy of terms. The second set demonstrates how the returned metadata about web services and time series is used to retrieve data from distributed hydrologic data servers.
+
+h2. Caltech - GPlates
+
+Plate Tectonics Reconstruction Service URL Documentation:
+
+"http://gplates.gps.caltech.edu:8080/doc_recon/":http://gplates.gps.caltech.edu:8080/doc_recon/
+
+Caltech provides a simple Web Service that reconstructs geographic feature data from present day coordinates back to some paleo-position.  They are currently constructing web services for 4-Dimensional Dynamic Earth Models. These are time-dependent computational models of the evolution of tectonic plates and the mantle over 200 million years. Products will include surface maps, volume data over time including the present day.
+
+h2. RAMADDA - general repository for long tail data
+
+GEODE Systems perfomrs consulting work for GeoWS to support develpments within RAMADDA to make it consistent with general GeoWS approaches.  Some early results can be found below.
+
+URL Builder:
+
+"http://ramadda.org/repository/swagger/index.html":http://ramadda.org/repository/swagger/index.html
+
+Example URLs:
+
+There are any number of encodings of the entries. For example here is a folder that contains a set of the GGP data files:
+"http://ramadda.org/repository/entry/show?entryid=9117effa-3cf2-49cc-94a7-9e00bb642691":http://ramadda.org/repository/entry/show?entryid=9117effa-3cf2-49cc-94a7-9e00bb642691
+
+If you go to the File menu (little arrow in upper left) => All Actions page you can see a list of links to other encodings of the folder contents- e.g., ATOM-XML, THREDDS catalog, JSON, CSV, etc:
+"http://ramadda.org/repository/entry/links?entryid=9117effa-3cf2-49cc-94a7-9e00bb642691":http://ramadda.org/repository/entry/links?entryid=9117effa-3cf2-49cc-94a7-9e00bb642691
+
+You can also do a repository wide search for specific types e.g.:
+"http://ramadda.org/repository/search/type/type_point_wsbb_ggp":http://ramadda.org/repository/search/type/type_point_wsbb_ggp
+
+Under the "More..." at the bottom of the form will be a set of links that do the search but return the results in the various encodings. 

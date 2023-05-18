@@ -1,0 +1,48 @@
+
+h2. GeoWS Overview
+
+The GeoWS approach is to enable search, discovery, and data access across widely varying
+data provider content by using a consistent pattern for constructing query URLs.
+
+Funded project partners include: "Caltech":http://www.caltech.edu/, "Columbia":http://www.columbia.edu/, "IRIS":http://ds.iris.edu, "UCSD/SDSC":https://www.sdsc.edu/, "Unidata":http://www.unidata.ucar.edu/
+
+More information: "GeoWS earthcube.org project page":http://earthcube.org/group/geows-geoscience-web-services
+
+h2. Technical Information and Downloads
+
+* GeoWS Service Template and GeoCSV "documents":/documents.
+* Create GeoWS services with "Web Service Shell":https://seiscode.iris.washington.edu/projects/webserviceshell/files 
+** Rapidly implement using Tomcat, configuration files and existing data retrieval programs
+** Can be extended with custom Java code
+
+"Web Service Shell Documentation":https://seiscode.iris.washington.edu/projects/webserviceshell/wiki/Web_Service_Shell explains concepts of operation, provides preliminary
+configration files and an example implementation.  The example "implementation":https://seiscode.iris.washington.edu/projects/webserviceshell/wiki/Example_service_implementation_using_WSS_2x includes
+a python "handler" illustrating a data retreival program.
+
+h2. GeoWS-Style Services
+
+Multiple services were developed to illustrate and test the concepts of GeoWS query
+patterns and to use GeoCSV output for the highest value information.
+
+h4. Funded Partner Developed "GeoWS Services":/endpoints
+
+h4. Unfunded Collaborator Services
+
+The approach taken to illustrate interoperating services is for "IRIS DMC":http://ds.iris.edu to build prototype
+services on behalf of each unfunded collaborator respectively. Selected data is accessed
+in its native form and query patterns, then reformated and returned to the requesting client.
+The general process is:
+
+* "Web Service Shell":https://seiscode.iris.washington.edu/projects/webserviceshell is used to build the core services "(Samples of Unfunded Services)":quick_links/links_across_domains.html
+* A Swagger framework "(GeoWS Swagger Services)":http://geows.ds.iris.edu/geows-uf/ is layerd on top of the respective web services to:
+** evaluate standardized API documentation using "Swagger Specification":https://openapis.org/specification
+** and evaluate URL building and data retrieval using "swagger-ui":http://swagger.io/swagger-ui/
+
+h4. _To Build an Unfunded GeoWS URL:_
+
+* Use the "GeoWS Swagger Services":http://geows.ds.iris.edu/geows-uf/ page to start
+* Select one of the services by name and select the "HEAD" operation
+* select the "Try it out" button near the bottom of page
+* *Alternatively* - use "GET" to return data and build the respective URL
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1860730-6']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title></title>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        GeoWS Project</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <a href="http://earthcube.org"><img src="/images/logo_earthcube_no-subhead_horizontal.png" style="height:50px;"></a>
+      <a href="http://www.nsf.gov"><img src="/images/nsf1-transparent.png" style="height:50px;"></a>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<h1></h1>
+
+	<h2>Examples of space &#8211; time queries across domains</h2>
+
+	<h4><span class="caps">NGDC</span> now <span class="caps">NCEI</span></h4>
+
+	<ul>
+		<li>Waterleveltide stations:</li>
+	</ul>
+
+	<p><a href="http://geows.ds.iris.edu/geows-uf/waterleveltides/1/query?resolution=overview&minlongitude=-161&maxlongitude=-158&minlatitude=18&maxlatitude=23&starttime=2011-06-17T23:59:59Z&endtime=2011-06-18T01:59:59Z&skipNullLatLong=true&skipNullDatumTime=true" target="_blank">http://geows.ds.iris.edu/geows-uf/waterleveltides/1/query?resolution=overview&minlongitude=-161&maxlongitude=-158&minlatitude=18&maxlatitude=23&starttime=2011-06-17T23:59:59Z&endtime=2011-06-18T01:59:59Z&skipNullLatLong=true&skipNullDatumTime=true</a></p>
+
+	<ul>
+		<li>Defense Meteorological Satellite Program (<span class="caps">DMSP</span>) image files</li>
+	</ul>
+
+	<p><a href="http://geows.ds.iris.edu/geows-uf/dmsp/1/query?email=geows@iris.washington.edu&content=files&starttime=1999-01-01T00:00:00&endtime=1999-01-02T05:00:00&longitude=0&latitude=-10" target="_blank">http://geows.ds.iris.edu/geows-uf/dmsp/1/query?email=geows@iris.washington.edu&content=files&starttime=1999-01-01T00:00:00&endtime=1999-01-02T05:00:00&longitude=0&latitude=-10</a></p>
+
+	<h4><span class="caps">WOVO</span>dat</h4>
+
+	<ul>
+		<li>Active volcanoes</li>
+	</ul>
+
+	<p><a href="http://geows.ds.iris.edu/geows-uf/wovodat/1/query?getVolcanoLocations=true&minlongitude=-161&maxlongitude=-153&minlatitude=18&maxlatitude=23" target="_blank">http://geows.ds.iris.edu/geows-uf/wovodat/1/query?getVolcanoLocations=true&minlongitude=-161&maxlongitude=-153&minlatitude=18&maxlatitude=23</a></p>
+
+	<h4><span class="caps">INTERMAGNET</span></h4>
+
+	<ul>
+		<li>Selected observatories with data on a specific day</li>
+	</ul>
+
+	<p><a href="http://geows.ds.iris.edu/geows-uf/intermagnet/1/query?email=geows@iris.washington.edu&accept=true&content=files&format=text&starttime=2014-11-01&endtime=2014-11-01&regions=America,Asia,Europe,Pacific,Africa&latitudes=NH,NM,E,SM,SH&type=best&rate=minute" target="_blank">http://geows.ds.iris.edu/geows-uf/intermagnet/1/query?email=geows@iris.washington.edu&accept=true&content=files&format=text&starttime=2014-11-01&endtime=2014-11-01&regions=America,Asia,Europe,Pacific,Africa&latitudes=NH,NM,E,SM,SH&type=best&rate=minute</a></p>
+
+	<h4><span class="caps">UTEP</span> Gravity and Magnetics</h4>
+
+	<ul>
+		<li>Gravity data around Mt. Rainier</li>
+	</ul>
+
+	<p><a href="http://geows.ds.iris.edu/geows-uf/utepgravitymag/1/query?format=text&type=gravity&minlongitude=-122.1&maxlongitude=-121.3&minlatitude=46.6&maxlatitude=47.1" target="_blank">http://geows.ds.iris.edu/geows-uf/utepgravitymag/1/query?format=text&type=gravity&minlongitude=-122.1&maxlongitude=-121.3&minlatitude=46.6&maxlatitude=47.1</a></p>
+
+	<h4>Ocean Observatory Initiative (<span class="caps">OOI</span>)</h4>
+
+	<ul>
+		<li>Stations with seismic data in a selected area</li>
+	</ul>
+
+	<p><a href="http://service.iris.edu/fdsnws/station/1/query?net=OO&level=station&format=GeoCSV&includecomments=true&minlongitude=-132&maxlongitude=-125&minlatitude=44.573&maxlatitude=45.94&starttime=2014-08-01&endtime=2014-08-02&nodata=404" target="_blank">http://service.iris.edu/fdsnws/station/1/query?net=OO&level=station&format=GeoCSV&includecomments=true&minlongitude=-132&maxlongitude=-125&minlatitude=44.573&maxlatitude=45.94&starttime=2014-08-01&endtime=2014-08-02&nodata=404</a></p>
+
+	<h4>Global Geodynamics Project (<span class="caps">GGP</span>)</h4>
+
+	<ul>
+		<li>Stations with time series data in a selected area</li>
+	</ul>
+
+	<p><a href="http://service.iris.edu/fdsnws/station/1/query?net=SG&level=station&format=GeoCSV&includecomments=true&minlongitude=-4&maxlongitude=-8&minlatitude=40&maxlatitude=49&starttime=1995-01-01&endtime=2000-01-01&nodata=404" target="_blank">http://service.iris.edu/fdsnws/station/1/query?net=SG&level=station&format=GeoCSV&includecomments=true&minlongitude=-4&maxlongitude=-8&minlatitude=40&maxlatitude=49&starttime=1995-01-01&endtime=2000-01-01&nodata=404</a></p>
+</div>
+
+</body>
+</html>

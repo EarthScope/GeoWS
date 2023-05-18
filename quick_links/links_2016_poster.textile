@@ -1,0 +1,32 @@
+
+h2. Poster links
+
+h4. Project
+
+Project Member's GeoWS Endpoints: <a href="http://geows.ds.iris.edu/endpoints/" target="_blank">http://geows.ds.iris.edu/endpoints/</a>
+GeoWS EarthCube page: <a href="http://earthcube.org/group/geows-geoscience-web-services" target="_blank">http://earthcube.org/group/geows-geoscience-web-services</a>
+GeoWS technical home: <a href="http://geows.ds.iris.edu/" target="_blank">http://geows.ds.iris.edu/</a>
+GeoWS documents: <a href="http://geows.ds.iris.edu/documents/" target="_blank">http://geows.ds.iris.edu/documents/</a>
+
+h4. Related topics
+
+W3C - CSV on the Web Working Group (CSVW) : <a href="http://www.w3.org/2013/csvw/wiki/Main_Page" target="_blank">http://www.w3.org/2013/csvw/wiki/Main_Page</a>
+Swagger Specification (now Open API Initiative): <a href="https://openapis.org/specification" target="_blank">https://openapis.org/specification</a>
+Swagger-ui: <a href="http://swagger.io/swagger-ui/" target="_blank">http://swagger.io/swagger-ui/</a>
+
+h4. Example cross-domain
+
+GPS ground displacement: <a href="http://web-services.unavco.org/gps/data/position/P378/v3?analysisCenter=pbo&referenceFrame=igs08&starttime=2008-01-01T00:00:00&endtime=2008-03-01T00:00:00&report=long&refCoordOption=from_analysis_center" target="_blank">http://web-services.unavco.org/gps/data/position/P378/v3?analysisCenter=pbo&referenceFrame=igs08&starttime=2008-01-01T00:00:00&endtime=2008-03-01T00:00:00&report=long&refCoordOption=from_analysis_center</a>
+
+h4. GeoWS Services
+
+GeoWS services: <a href="http://geows.ds.iris.edu/endpoints/" target="_blank">http://geows.ds.iris.edu/endpoints/</a>
+
+GeoWS proxy services: <a href="http://geows.ds.iris.edu/geows-uf/" target="_blank">http://geows.ds.iris.edu/geows-uf/</a>
+
+
+h4. URL Builders
+
+GeoWS proxy service - Swagger-ui example: <a href="http://geows.ds.iris.edu/geows-uf/wovodat/1/#!/WOVOdat/getData" target="_blank">http://geows.ds.iris.edu/geows-uf/wovodat/1/#!/WOVOdat/getData</a>
+
+IRIS station URL builder: <a href="http://service.iris.edu/fdsnws/station/1/" target="_blank">http://service.iris.edu/fdsnws/station/1/</a>

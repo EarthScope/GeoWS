@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1860730-6']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <title></title>
+    <script type="application/ld+json">
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "gdx": "https://geodex.org/voc/"
+  },
+  "@type": ["Service", "Organization"],
+  "@id": "http://ds.iris.edu/ds/",
+  "additionalType": "gdx:ResearchRepositoryService",
+  "legalName": "Incorporated Research Institutions for Seismology Data Servicses",
+  "name": "IRIS DS",
+  "description": "IRIS Data Services (DS) has very specific charges and consists of several components or \"nodes\".",
+  "url": "http://geows.ds.iris.edu/",
+  "location": 
+  {"@type": "PostalAddress",
+   "addressLocality": "Seattle"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "name": "Mike Stults",
+    "email": "mike@iris.washington.edu",
+    "url": "http://geows.ds.iris.edu",
+    "contactType": "technical support"
+  },
+  "sameAs": [
+    "http://www.re3data.org/repository/r3d100010268"
+  ],
+  "category": ["Seismology", "Seismic Data Services", "seismology workshop", "seismic monitor",
+    "seismic waveform", "earthquake", "earthquake education"
+  ],
+  "hasOfferCatalog": [
+    {
+      "@type": "OfferCatalog",
+      "additionalType": "gdx:OutreachActivities",
+      "itemListElement": [
+        {
+          "@type": "Action",
+          "@id": "gdx:OutreachActivity-Training",
+          "additionalType": "gdx:OutreachActivity-UserWorkshop",
+          "name": "2018 IRIS Workshop",
+          "description": "Foundations, Frontiers, and Future Facilities for Seismology, June 12-14, 2018, Albuqueque, NM",
+          "url": "https://www.iris.edu/hq/workshops/2018/06/iris_workshop_2018"
+        }
+      ]
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        GeoWS Project</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <a href="http://earthcube.org"><img src="/images/logo_earthcube_no-subhead_horizontal.png" style="height:50px;"></a>
+      <a href="http://www.nsf.gov"><img src="/images/nsf1-transparent.png" style="height:50px;"></a>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+<h1></h1>
+
+	<h2>GeoWS Overview</h2>
+
+	<p>The GeoWS approach is to enable search, discovery, and data access across widely varying<br />
+data provider content by using a consistent pattern for constructing query <span class="caps">URL</span>s.</p>
+
+	<p>Funded project partners include: <a href="http://www.caltech.edu/">Caltech</a>, <a href="http://www.columbia.edu/">Columbia</a>, <a href="http://ds.iris.edu"><span class="caps">IRIS</span></a>, <a href="https://www.sdsc.edu/"><span class="caps">UCSD</span>/SDSC</a>, <a href="http://www.unidata.ucar.edu/">Unidata</a></p>
+
+	<p>More information: <a href="http://earthcube.org/group/geows-geoscience-web-services">GeoWS earthcube.org project page</a></p>
+
+	<h2>Technical Information and Downloads</h2>
+
+	<ul>
+		<li>GeoWS Service Template and GeoCSV <a href="/documents">documents</a>.</li>
+		<li>Create GeoWS services with <a href="https://seiscode.iris.washington.edu/projects/webserviceshell/files">Web Service Shell</a>
+		<ul>
+			<li>Rapidly implement using Tomcat, configuration files and existing data retrieval programs</li>
+			<li>Can be extended with custom Java code</li>
+		</ul></li>
+		</ul>
+
+	<p><a href="https://seiscode.iris.washington.edu/projects/webserviceshell/wiki/Web_Service_Shell">Web Service Shell Documentation</a> explains concepts of operation, provides preliminary<br />
+configration files and an example implementation.  The example <a href="https://seiscode.iris.washington.edu/projects/webserviceshell/wiki/Example_service_implementation_using_WSS_2x">implementation</a> includes<br />
+a python &#8220;handler&#8221; illustrating a data retreival program.</p>
+
+	<h2>GeoWS-Style Services</h2>
+
+	<p>Multiple services were developed to illustrate and test the concepts of GeoWS query<br />
+patterns and to use GeoCSV output for the highest value information.</p>
+
+	<h4>Funded Partner Developed <a href="/endpoints">GeoWS Services</a></h4>
+
+	<h4>Unfunded Collaborator Services</h4>
+
+	<p>The approach taken to illustrate interoperating services is for <a href="http://ds.iris.edu"><span class="caps">IRIS</span> <span class="caps">DMC</span></a> to build prototype<br />
+services on behalf of each unfunded collaborator respectively. Selected data is accessed<br />
+in its native form and query patterns, then reformated and returned to the requesting client.<br />
+The general process is:</p>
+
+	<ul>
+		<li><a href="https://seiscode.iris.washington.edu/projects/webserviceshell">Web Service Shell</a> is used to build the core services <a href="quick_links/links_across_domains.html">(Samples of Unfunded Services)</a></li>
+		<li>A Swagger framework <a href="http://geows.ds.iris.edu/geows-uf/">(GeoWS Swagger Services)</a> is layerd on top of the respective web services to:
+		<ul>
+			<li>evaluate standardized <span class="caps">API</span> documentation using <a href="https://openapis.org/specification">Swagger Specification</a></li>
+			<li>and evaluate <span class="caps">URL</span> building and data retrieval using <a href="http://swagger.io/swagger-ui/">swagger-ui</a></li>
+		</ul></li>
+		</ul>
+
+	<h4><em>To Build an Unfunded GeoWS <span class="caps">URL</span>:</em></h4>
+
+	<ul>
+		<li>Use the <a href="http://geows.ds.iris.edu/geows-uf/">GeoWS Swagger Services</a> page to start</li>
+		<li>Select one of the services by name and select the &#8220;<span class="caps">HEAD</span>&#8221; operation</li>
+		<li>select the &#8220;Try it out&#8221; button near the bottom of page</li>
+		<li><strong>Alternatively</strong> &#8211; use &#8220;<span class="caps">GET</span>&#8221; to return data and build the respective <span class="caps">URL</span></li>
+	</ul>
+</div>
+
+</body>
+</html>
