@@ -1,0 +1,1500 @@
+{
+  "basePath": "/geows-uf",
+  "host": "geows.ds.iris.edu",
+  "info": {
+    "contact": {
+      "email": "geows@iris.washington.edu",
+      "name": "The EarthCube GeoWS Building Block Project"
+    },
+    "description": "This is a collection of servcies for unfunded collaborators showing data retrieval from respective data providers. <p>For each service <ul><li>use the GET operation to retrieve data and build the respective URL</li><li> use the HEAD operation to build a URL</li></ul>",
+    "license": {
+      "name": "Data provided under GNU Lesser General Public License",
+      "url": "http://www.gnu.org/licenses/"
+    },
+    "termsOfService": "TBD",
+    "title": "GeoWS Unfunded Collaborator's Services",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/dmsp/1/query": {
+      "get": {
+        "description": "<p>The <strong>dmsp</strong> service provides query access to the DMSP catalog service using content type of files or extents. After determining the desired data from a catalog query, a request to prepare the data for download can be made by changing the content type to data.</p> <p>This web service can provide catalog data in a text format like the web application at <a href='http://www.ngdc.noaa.gov/next-web/cart.html'>NGDC DMSP Catalog Service</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get DMSP file list, extents, or data request",
+        "tags": [
+          "NGDC next-web DMSP File Request"
+        ]
+      },
+      "head": {
+        "description": "<p>The <strong>dmsp</strong> service provides query access to the DMSP catalog service using content type of files or extents. After determining the desired data from a catalog query, a request to prepare the data for download can be made by changing the content type to data.</p> <p>This web service can provide catalog data in a text format like the web application at <a href='http://www.ngdc.noaa.gov/next-web/cart.html'>NGDC DMSP Catalog Service</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get DMSP file list, extents, or data request",
+        "tags": [
+          "NGDC next-web DMSP File Request"
+        ]
+      },
+      "parameters": [
+        {
+          "default": "",
+          "description": "required for data download - indicates the recipient for messages from NGDC next-web REST ordering service",
+          "in": "query",
+          "name": "email",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "files",
+          "description": "<strong>files</strong> provides a list of files that may be retrieved with the respective query parameters. <strong>extents</strong> provides an estimate of total size for the respective query parameters. <strong>data</strong> will cause a request to be made for the respective query parameters",
+          "enum": [
+            "files",
+            "extents",
+            "data"
+          ],
+          "in": "query",
+          "name": "content",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "1999-01-01T00:00:00",
+          "description": "start time for desired coverage",
+          "in": "query",
+          "name": "starttime",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "1999-01-02T05:00:00",
+          "description": "end time for desired coverage",
+          "in": "query",
+          "name": "endtime",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "F13",
+          "description": "Case sensitive ID, e.g. F12 or F13, etc.",
+          "in": "query",
+          "name": "satellite",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "0",
+          "description": "A point of desired coverage",
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "longitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "default": "-10",
+          "description": "A point of desired coverage",
+          "exclusiveMaximum": true,
+          "exclusiveMinimum": true,
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "latitude",
+          "required": false,
+          "type": "number"
+        }
+      ]
+    },
+    "/dmsp/1/version": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this service)",
+        "operationId": "getVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of service",
+        "tags": [
+          "NGDC next-web DMSP File Request"
+        ]
+      }
+    },
+    "/dmsp/1/wssversion": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this WebServiceShell (WSS))",
+        "operationId": "getWssVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of WebServiceShell",
+        "tags": [
+          "NGDC next-web DMSP File Request"
+        ]
+      }
+    },
+    "/intermagnet/1/query": {
+      "get": {
+        "description": "<p>The <strong>intermagnet</strong> service provides a list of files or magnetic data via a GeoWS style web service.</p><p>For more information about INTERMAGNET and data definition, see <a href='http://intermagnet.org/data-donnee/download-eng.php'>INTERMAGNET Data Download</a></p><p>The <strong>email</strong> and <strong>accept</strong> parameters are required to indicate acceptance of conditions of use.</p><p>Additionally, <strong>observatories</strong> parameter is added to enable query by one or more observatories.</p><p>When content type of <strong>data</strong> is specified, this service submits requests in batches and polls for up to 10 times on 10 second intervals.</p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get INTERMAGNET data",
+        "tags": [
+          "INTERMAGNET"
+        ]
+      },
+      "head": {
+        "description": "<p>The <strong>intermagnet</strong> service provides a list of files or magnetic data via a GeoWS style web service.</p><p>For more information about INTERMAGNET and data definition, see <a href='http://intermagnet.org/data-donnee/download-eng.php'>INTERMAGNET Data Download</a></p><p>The <strong>email</strong> and <strong>accept</strong> parameters are required to indicate acceptance of conditions of use.</p><p>Additionally, <strong>observatories</strong> parameter is added to enable query by one or more observatories.</p><p>When content type of <strong>data</strong> is specified, this service submits requests in batches and polls for up to 10 times on 10 second intervals.</p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get INTERMAGNET data",
+        "tags": [
+          "INTERMAGNET"
+        ]
+      },
+      "parameters": [
+        {
+          "default": "",
+          "description": "required for data download request and indication of acceptance of conditions of use",
+          "in": "query",
+          "name": "email",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "false",
+          "description": "I accept the conditions of use and I confirm that the e-mail address I have entered is correct",
+          "in": "query",
+          "name": "accept",
+          "required": true,
+          "type": "boolean"
+        },
+        {
+          "default": "files",
+          "description": "<strong>files</strong> - list of available files, <strong>data</strong> - text version of magnetic data",
+          "enum": [
+            "files",
+            "data"
+          ],
+          "in": "query",
+          "name": "content",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "text",
+          "description": "<strong>text</strong> - data is in GeoWS well structured text form, <strong>IAGA2002</strong> - output is structured in INTERMAGNET format <a href='http://www.ngdc.noaa.gov/IAGA/vdat/iagaformat.html'>IAGA2002</a",
+          "enum": [
+            "text",
+            "IAGA2002"
+          ],
+          "in": "query",
+          "name": "format",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "2014-10-30",
+          "description": "start time for desired coverage",
+          "in": "query",
+          "name": "starttime",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "2014-11-01",
+          "description": "end time for desired coverage",
+          "in": "query",
+          "name": "endtime",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "America,Asia,Europe,Pacific,Africa",
+          "description": "Any or all of America,Asia,Europe,Pacific,Africa",
+          "in": "query",
+          "name": "regions",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "NH,NM,E,SM,SH",
+          "description": "Any or all of NH,NM,E,SM,SH - where NH is North High Latitude, etc.",
+          "in": "query",
+          "name": "latitudes",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "AAA,BEL,CKI,DED,EBR,FCC,GAN",
+          "description": "Comma separated list, e.g. ASC,BOU,VIC  - empty list selects all.",
+          "in": "query",
+          "name": "observatories",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "best",
+          "description": "One of variation, provisional, quasi-definitive, best (best available), additionally for minute rate - definitive",
+          "in": "query",
+          "name": "type",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": "minute",
+          "description": "The interval between data entries.",
+          "enum": [
+            "minute",
+            "second"
+          ],
+          "in": "query",
+          "name": "rate",
+          "required": true,
+          "type": "string"
+        }
+      ]
+    },
+    "/intermagnet/1/version": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this service)",
+        "operationId": "getVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of service",
+        "tags": [
+          "INTERMAGNET"
+        ]
+      }
+    },
+    "/intermagnet/1/wssversion": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this WebServiceShell (WSS))",
+        "operationId": "getWssVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of WebServiceShell",
+        "tags": [
+          "INTERMAGNET"
+        ]
+      }
+    },
+    "/utepgravitymag/1/query": {
+      "get": {
+        "description": "<p>The <strong>utepgravitymag</strong> service provides gravity or magnetics data via a GeoWS style web service.<p>This web service provides the same data as the web application at <a href='http://irpsrvgis08.utep.edu/viewers/Flex/GravityMagnetic/'>UTEP Web Application for Gravity and Magnetic</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get Gravity or Magnetics Data",
+        "tags": [
+          "UTEP Gravity or Magnetics"
+        ]
+      },
+      "head": {
+        "description": "<p>The <strong>utepgravitymag</strong> service provides gravity or magnetics data via a GeoWS style web service.<p>This web service provides the same data as the web application at <a href='http://irpsrvgis08.utep.edu/viewers/Flex/GravityMagnetic/'>UTEP Web Application for Gravity and Magnetic</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get Gravity or Magnetics Data",
+        "tags": [
+          "UTEP Gravity or Magnetics"
+        ]
+      },
+      "parameters": [
+        {
+          "default": "text",
+          "description": "One of text or JSON, default is text",
+          "enum": [
+            "text",
+            "csv",
+            "JSON"
+          ],
+          "in": "query",
+          "name": "format",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "gravity",
+          "description": "One of gravity or magnetics, default is magnetics",
+          "enum": [
+            "gravity",
+            "magnetics"
+          ],
+          "in": "query",
+          "name": "type",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "default": -122.1,
+          "description": "western limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "minlongitude",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "default": -121.3,
+          "description": "eastern limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "maxlongitude",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "default": 46.6,
+          "description": "southern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "minlatitude",
+          "required": true,
+          "type": "number"
+        },
+        {
+          "default": 47.1,
+          "description": "northern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "maxlatitude",
+          "required": true,
+          "type": "number"
+        }
+      ]
+    },
+    "/utepgravitymag/1/version": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this service)",
+        "operationId": "getVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of service",
+        "tags": [
+          "UTEP Gravity or Magnetics"
+        ]
+      }
+    },
+    "/utepgravitymag/1/wssversion": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this WebServiceShell (WSS))",
+        "operationId": "getWssVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of WebServiceShell",
+        "tags": [
+          "UTEP Gravity or Magnetics"
+        ]
+      }
+    },
+    "/waterleveltides/1/query": {
+      "get": {
+        "description": "<p>The <strong>waterleveltides</strong> service provides station names and waterlevel data via a GeoWS style web service. </p><p>This web service can provide data in a text format like the web application at <a href='http://www.ngdc.noaa.gov/waterlevel/tides/data/extractForm'>NGDC Tides Data Extract</a></p><p>Additionally, this web service can provide metadata concerning station names and availability like the web application at <a href='http://www.ngdc.noaa.gov/waterlevel/tides/station/list'>NGDC Tides Station List</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get Waterlevel Tide Data",
+        "tags": [
+          "NGDC Water Level Tides"
+        ]
+      },
+      "head": {
+        "description": "<p>The <strong>waterleveltides</strong> service provides station names and waterlevel data via a GeoWS style web service. </p><p>This web service can provide data in a text format like the web application at <a href='http://www.ngdc.noaa.gov/waterlevel/tides/data/extractForm'>NGDC Tides Data Extract</a></p><p>Additionally, this web service can provide metadata concerning station names and availability like the web application at <a href='http://www.ngdc.noaa.gov/waterlevel/tides/station/list'>NGDC Tides Station List</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get Waterlevel Tide Data",
+        "tags": [
+          "NGDC Water Level Tides"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "overview - shows only stations, for waterlevel values, choose one of [year, month, day, hour, minute, full]",
+          "enum": [
+            "overview",
+            "year",
+            "month",
+            "day",
+            "hour",
+            "minute",
+            "full"
+          ],
+          "in": "query",
+          "name": "resolution",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "default": "",
+          "description": "Comma separated list, e.g. 9411166, MAHU  - empty list selects any.",
+          "in": "query",
+          "name": "stationIDs",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "western limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "minlongitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "eastern limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "maxlongitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "southern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "minlatitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "northern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "maxlatitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "start time for desired coverage",
+          "in": "query",
+          "name": "starttime",
+          "type": "string"
+        },
+        {
+          "description": "end time for desired coverage",
+          "in": "query",
+          "name": "endtime",
+          "type": "string"
+        },
+        {
+          "description": "don't output records when the location is null",
+          "enum": [
+            "",
+            true,
+            false
+          ],
+          "in": "query",
+          "name": "skipNullLatLong",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "show records when the location is null",
+          "enum": [
+            "",
+            true,
+            false
+          ],
+          "in": "query",
+          "name": "selectNullLatLong",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "don't output records when the availability times are null",
+          "enum": [
+            "",
+            true,
+            false
+          ],
+          "in": "query",
+          "name": "skipNullDatumTime",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "show records when the availability times are null",
+          "enum": [
+            "",
+            true,
+            false
+          ],
+          "in": "query",
+          "name": "selectNullDatumTime",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    "/waterleveltides/1/version": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this service)",
+        "operationId": "getVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of service",
+        "tags": [
+          "NGDC Water Level Tides"
+        ]
+      }
+    },
+    "/waterleveltides/1/wssversion": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this WebServiceShell (WSS))",
+        "operationId": "getWssVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of WebServiceShell",
+        "tags": [
+          "NGDC Water Level Tides"
+        ]
+      }
+    },
+    "/wovodat/1/query": {
+      "get": {
+        "description": "<p>The <strong>wovodata</strong> service provides listings of eruptions, montioring stations, etc. via a GeoWS style web service.<p>This web service complements the web application at <a href='http://www.wovodat.org/precursor/index_unrest_devel_v6.php'>See your volcano</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "application/pdf"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get selected data from WOVOdat database",
+        "tags": [
+          "WOVOdat"
+        ]
+      },
+      "head": {
+        "description": "<p>The <strong>wovodata</strong> service provides listings of eruptions, montioring stations, etc. via a GeoWS style web service.<p>This web service complements the web application at <a href='http://www.wovodat.org/precursor/index_unrest_devel_v6.php'>See your volcano</a></p>",
+        "operationId": "getData",
+        "parameters": [
+          
+        ],
+        "produces": [
+          "text/plain",
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request, and error messages releated to client interaction with WebServiceShell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error, and error messages related to handler operation or WebServiceShell configuration",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get selected data from WOVOdat database",
+        "tags": [
+          "WOVOdat"
+        ]
+      },
+      "parameters": [
+        {
+          "description": "One of text, csv, or JSON, default is text",
+          "enum": [
+            "text",
+            "csv",
+            "JSON"
+          ],
+          "in": "query",
+          "name": "format",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "western limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "minlongitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "eastern limit",
+          "in": "query",
+          "maximum": 180,
+          "minimum": -180,
+          "name": "maxlongitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "southern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "minlatitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "northern limit",
+          "in": "query",
+          "maximum": 90,
+          "minimum": -90,
+          "name": "maxlatitude",
+          "required": false,
+          "type": "number"
+        },
+        {
+          "description": "show records when either lat, long, or elevation is not a number",
+          "in": "query",
+          "name": "showNumberFormatExceptions",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "description": "get a list of volcanos with respective Ids",
+          "in": "query",
+          "name": "getVolcanoIds",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "default": true,
+          "description": "get a stored list of volcanos with respective Ids and locations",
+          "in": "query",
+          "name": "getVolcanoLocations",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "description": "build volcanos list with Ids and locations, this list may contain newer items than getVolcanoLocations, may take 20 minutes",
+          "in": "query",
+          "name": "getBaseUpdate",
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "description": "enter cavw (Catalog of Active Volcanoes of the World, e.g. 1302-01-  see getVolcanoIds for all cavw values), provides name and date of eruptions for respective volcano",
+          "in": "query",
+          "name": "getEruptionList",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "enter cavw, provides a list of monitoring stations near respective volcano",
+          "in": "query",
+          "name": "getAllStationsList",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "enter cavw, provides status, owner and other metadata",
+          "in": "query",
+          "name": "getCcUrl",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "enter cavw, provides other volcano locations",
+          "in": "query",
+          "name": "getNeighborsList",
+          "required": false,
+          "type": "string"
+        },
+        {
+          "description": "enter cavw, provides list of time series data available near respective volcano",
+          "in": "query",
+          "name": "getTimeSeriesForVolcano",
+          "required": false,
+          "type": "string"
+        }
+      ]
+    },
+    "/wovodat/1/version": {
+      "get": {
+        "description": "<p>The <strong>version</strong> service provides the version number of this service)",
+        "operationId": "getVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of service",
+        "tags": [
+          "WOVOdat"
+        ]
+      }
+    },
+    "/wovodat/1/wssversion": {
+      "get": {
+        "description": "<p>The <strong>wssversion</strong> service provides the version number of this WebServiceShell (WSS))",
+        "operationId": "getWssVersion",
+        "produces": [
+          "text/plain"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "406": {
+            "description": "Not Acceptable - look at Accept headers, WebServiceShell only returns text/plain here",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "security": [
+          {
+            "TBD_auth": [
+              "write:writeTBD",
+              "read:readTBD"
+            ]
+          }
+        ],
+        "summary": "Get version of WebServiceShell",
+        "tags": [
+          "WOVOdat"
+        ]
+      }
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "securityDefinitions": {
+    "TBD_auth": {
+      "authorizationUrl": "http://TBD/api/oauth/dialog",
+      "flow": "implicit",
+      "type": "oauth2"
+    },
+    "api_key": {
+      "in": "header",
+      "name": "api_key",
+      "type": "apiKey"
+    }
+  },
+  "swagger": "2.0"
+}

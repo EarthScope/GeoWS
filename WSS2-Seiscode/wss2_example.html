@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><link id="lite-css-list" rel="stylesheet" type="text/css"><style id="custom-css-list" type="text/css"></style><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Example service implementation using WSS 2x - Web Service Shell - IRIS SeisCode</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="63h2lcEou7jcdH4/ThY84bdedACAt6J7Xy166FXXGv/Y3ecivWjFu0zjuKWeYeazixWM59Q3yvJIxbyacSC2wg==">
+<link rel="shortcut icon" href="https://localhost/plugin_assets/redmine_seiscode/images/favicon.ico"><link rel="stylesheet" media="screen" href="wss2_example_SeisCode_files/seiscode.css">
+<link rel="stylesheet" media="all" href="wss2_example_SeisCode_files/jquery-ui-1.11.0.css">
+<link rel="stylesheet" media="all" href="wss2_example_SeisCode_files/application.css">
+<link rel="stylesheet" media="all" href="wss2_example_SeisCode_files/responsive.css">
+
+<script src="wss2_example_SeisCode_files/jquery-1.11.1-ui-1.11.0-ujs-3.1.4.js"></script>
+<script src="wss2_example_SeisCode_files/application.js"></script>
+<script src="wss2_example_SeisCode_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).load(function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<link rel="stylesheet" media="screen" href="wss2_example_SeisCode_files/banner.js"></script>
+<!-- page specific tags -->
+</head>
+<body class="project-webserviceshell controller-wiki action-show">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+
+        <div class="flyout-menu__search">
+            <form action="/projects/webserviceshell/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar flyout-menu__avatar--no-avatar">
+            Anonymous
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li>My account</li><li>Sign out</li></ul>    </div>
+    <div id="loggedas">Logged in as Anonymous</div>
+    <ul><li><a class="home" href="https://localhost/">Home</a></li><li><a class="my-page" href="https://localhost/my/page">My page</a></li><li><a class="projects" href="https://localhost/projects">Projects</a></li><li><a class="help" href="https://localhost/projects/seiscode">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/webserviceshell/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="quick_search" id="quick_search" value="1">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://localhost/projects/webserviceshell/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f">
+        in
+        <label class="hidden-for-sighted" for="scope">Search scope</label><select name="scope" id="scope"><option value="all">All Projects</option>
+<option value="my_projects">My projects</option>
+<option selected="selected" value="">Web Service Shell</option></select>
+</form>    </div>
+
+    <h1><img class="seiscode-icon" src="wss2_example_SeisCode_files/icon.png"><span class="current-project">Web Service Shell</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a id="new-object" onclick="toggleNewObjectDropdown(); return false;" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a accesskey="7" class="new-issue-sub" href="https://localhost/projects/webserviceshell/issues/new">New issue</a></li></ul>
+</li><li><a class="overview" href="https://localhost/projects/webserviceshell">Overview</a></li><li><a class="roadmap" href="https://localhost/projects/webserviceshell/roadmap">Roadmap</a></li><li><a class="issues" href="https://localhost/projects/webserviceshell/issues">Issues</a></li><li><a class="news" href="https://localhost/projects/webserviceshell/news">News</a></li><li><a class="documents" href="https://localhost/projects/webserviceshell/documents">Documents</a></li><li><a class="wiki selected" href="https://localhost/projects/webserviceshell/wiki">Wiki</a></li><li><a class="boards" href="https://localhost/projects/webserviceshell/boards">Forums</a></li><li><a class="files" href="https://localhost/projects/webserviceshell/files">Files</a></li></ul>
+        <div class="tabs-buttons" style="display:none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://localhost/projects/webserviceshell/wiki">Start page</a></li>
+  <li><a href="https://localhost/projects/webserviceshell/wiki/index">Index by title</a></li>
+  <li><a href="https://localhost/projects/webserviceshell/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+  
+  <a class="wiki_page-489-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://localhost/watchers/watch?object_id=489&amp;object_type=wiki_page">Watch</a>
+  
+  
+  
+  
+<a class="icon icon-history" href="https://localhost/projects/webserviceshell/wiki/Example_service_implementation_using_WSS_2x/history">History</a>
+</div>
+
+<p class="breadcrumb"><a href="https://localhost/projects/webserviceshell/wiki/Web_Service_Shell">Web Service Shell</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Example-Service-Implementation-using-WSS-2x"></a>
+<h1>Example Service Implementation using WSS 2.x<a href="#Example-Service-Implementation-using-WSS-2x" class="wiki-anchor">¶</a></h1>
+
+
+	<p>WSS can be used to create REST-like web service for delivering data 
+to an HTTP client. This procedure highlights the steps needed to install
+ a WSS service given the following:</p>
+
+
+	<ul>
+	<li>A command-line script called <strong>sample.py</strong> - see listing below.</li>
+		<li>That Tomcat is installed.</li>
+	</ul>
+
+
+	<a name="This-procedures-objective-is-to"></a>
+<h2>This procedure's objective is to:<a href="#This-procedures-objective-is-to" class="wiki-anchor">¶</a></h2>
+
+
+	<ul>
+	<li>create a web service called <strong>mysrv/sample/1</strong>, accessable at <a class="external" href="http://localhost:8080/mysrv/sample/1">http://localhost:8080/mysrv/sample/1</a></li>
+		<li>have the web service deliver random numbers using parameter <strong>num_values</strong></li>
+		<li>deliver <strong>xml</strong>, <strong>text</strong>, or <strong>zip</strong> using parameter <strong>format</strong></li>
+		<li>returns error 3 and error message if the value of <strong>num_values</strong> is not between 1 and 100</li>
+	</ul>
+
+
+	<a name="Setup-Tomcat-Environment-for-WSS"></a>
+<h2>Setup Tomcat Environment for WSS<a href="#Setup-Tomcat-Environment-for-WSS" class="wiki-anchor">¶</a></h2>
+
+
+	<table>
+		<tbody><tr>
+			<td> <strong>Step</strong> </td>
+			<td> <strong>Description</strong> </td>
+		</tr>
+		<tr>
+			<td> if not intalled, install Apache Tomcat </td>
+			<td> see <a href="https://localhost/projects/webserviceshell/wiki/Web_Service_Shell#FDSN-Services-Using-the-Web-Service-Shell" class="external">Quick installation instructions</a> </td>
+		</tr>
+		<tr>
+			<td> create WSS configuration folder: <strong>/WSSHOME/config</strong> </td>
+			<td> for this example: <pre>mkdir /WSSHOME/config</pre> </td>
+		</tr>
+		<tr>
+			<td> configure folder location </td>
+			<td> Add to, or edit file <strong>/WSSHOME/tomcat/bin/setenv.sh</strong> with this content: <pre>JAVA_OPTS="-Xmx512m -DwssConfigDir='/WSSHOME/config'"</pre> as described in <a href="https://localhost/projects/webserviceshell/wiki/Web_Service_Shell#FDSN-Services-Using-the-Web-Service-Shell" class="external">Quick Installation Instructions</a> </td>
+		</tr>
+	</tbody></table>
+
+
+
+
+	<a name="Configure-WSS"></a>
+<h2>Configure WSS<a href="#Configure-WSS" class="wiki-anchor">¶</a></h2>
+
+
+	<table>
+		<tbody><tr>
+			<td> choose service name </td>
+			<td> for this example: <strong>mysrv/sample/1</strong>  </td>
+		</tr>
+		<tr>
+			<td> deploy script </td>
+			<td> * The script must be executable<br>* for this example, copy sample.py to <strong>/WSSHOME/config/sample.py</strong> </td>
+		</tr>
+		<tr>
+			<td> create WSS config files </td>
+			<td> * copy <a href="https://localhost/projects/webserviceshell/wiki/WSS_22_Documentation#Parameter-File-Examples" class="external">Parameter File Examples</a> to create, respectively: <strong>mysrv.sample.1-service.cfg</strong>, <strong>mysrv.sample.1-param.cfg</strong>, and <strong>mysrv.sample.1-log4j.properties</strong><br>* for naming rules see <a href="https://localhost/projects/webserviceshell/wiki/WSS_22_Documentation#Conventions-and-Configuration-Concepts" class="external">Conventions and Configuration Concepts</a><br>* for parameter definitions, see <a href="https://localhost/projects/webserviceshell/wiki/WSS_22_Documentation#WSS-Configuration" class="external">WSS Configuration</a> </td>
+		</tr>
+		<tr>
+			<td> edit WSS config file <strong>mysrv.sample.1-service.cfg</strong> </td>
+			<td> * set parameter <strong>appName</strong>: appName=mysrv-sample-1<br>* set parameter <strong>version</strong>: version=1.0.0<br>* set parameter <strong>query.handlerProgram</strong>: query.handlerProgram=/WSSHOME/config/sample.py<br>* set parameter <strong>query.formatTypes</strong>: query.formatTypes = \<br>    xml: application/xml, \<br>    text: text/plain, \<br>    zip: application/zip<br>* set parameter <strong>query.formatDispositions</strong>: query.formatDispositions= \<br>  zip: attachment; filename="data.zip"</td>
+		</tr>
+		<tr>
+			<td> edit WSS config file <strong>mysrv.sample.1-param.cfg</strong> </td>
+			<td> * replace line <strong>query.type=TEXT</strong> with query.num_values=NUMBER<br>* remove lines with <strong>query.minlongitude, query.maxlongitude, query.minlatitude,</strong> and <strong>query.maxlatitude</strong><br>* add lines: query.aliases = \<br>  num_values: num </td>
+		</tr>
+		<tr>
+			<td> edit WSS config file <strong>mysrv.sample.1-log4j.properties</strong> </td>
+			<td> * set parameter <strong>log4j.appender.ShellAppender.File</strong>: log4j.appender.ShellAppender.File=${catalina.home}/logs/sample.log<br> * set parameter <strong>log4j.appender.UsageAppender.File</strong>: log4j.appender.UsageAppender.File=${catalina.home}/logs/sample_usage.log </td>
+		</tr>
+		<tr>
+			<td> deploy WSS config files </td>
+			<td> copy configuration files into folder <strong>/WSSHOME/config</strong> </td>
+		</tr>
+		<tr>
+			<td>copy and name WSS war file </td>
+			<td>  * download the WSS war file from <a href="https://localhost/projects/webserviceshell/files" class="external">Web Service Shell files</a><br>* copy the WSS war to a war file with the desired service name i.e. <strong>mysrv#sample#1.war</strong> <pre>cp webserviceshell_2.2.2.war /WSSHOME/tomcat/mysrv#sample#1.war</pre> </td>
+		</tr>
+	</tbody></table>
+
+
+
+
+	<a name="Startup-and-deploy-WSS"></a>
+<h2>Startup and deploy WSS<a href="#Startup-and-deploy-WSS" class="wiki-anchor">¶</a></h2>
+
+
+	<table>
+		<tbody><tr>
+			<td> start tomcat </td>
+			<td> run <pre>/WSSHOME/tomcat/bin/startup.sh</pre> then check that tomcat started, <pre>tail -f /WSSHOME/tomcat/logs/catalina.out</pre> </td>
+		</tr>
+		<tr>
+			<td> deploy WSS for <strong>mysrv/sample/1</strong></td>
+			<td> <pre>mv /WSSHOME/tomcat/mysrv#sample#1.war /WSSHOME/tomcat/webapps</pre> note that catalina.out shows that the service started</td>
+		</tr>
+		<tr>
+			<td> check operation with browser or curl </td>
+			<td> * <strong><a class="external" href="http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=text">http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=text</a></strong> - check for plain text<br>* <strong><a class="external" href="http://localhost:8080/mysrv/sample/1/query?num_values=-25&amp;format=text">http://localhost:8080/mysrv/sample/1/query?num_values=-25&amp;format=text</a></strong> - check for error handling<br>* <strong><a class="external" href="http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=xml">http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=xml</a></strong> - check for xml<br>* <strong><a class="external" href="http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=zip">http://localhost:8080/mysrv/sample/1/query?num_values=25&amp;format=zip</a></strong> - check for zip output of multiple files<br>* <strong><a class="external" href="http://localhost:8080/mysrv/sample/1/query?num=25&amp;format=zip">http://localhost:8080/mysrv/sample/1/query?num=25&amp;format=zip</a></strong> - check "num" alias  </td>
+		</tr>
+	</tbody></table>
+
+
+
+
+	<a name="Script-File"></a>
+<h1>Script File<a href="#Script-File" class="wiki-anchor">¶</a></h1>
+
+
+	<a name="samplepy"></a>
+<h3>sample.py<a href="#samplepy" class="wiki-anchor">¶</a></h3>
+
+
+<pre><code class="python syntaxhl"><span class="CodeRay"><span class="comment">#!/usr/bin/python</span>
+<span class="docstring"><span class="delimiter">'''</span><span class="content">
+</span><span class="content">A sample web handler for the IRIS Web Service Shell.</span><span class="content">
+</span><span class="content">
+</span><span class="content">The program produces a set of random values in a specified</span><span class="content">
+</span><span class="content">format type of either text, xml, or a zip of text files with </span><span class="content">
+</span><span class="content">up to 10 random values in each file. The number of values </span><span class="content">
+</span><span class="content">returned is defined by the num_values parameter.</span><span class="content">
+</span><span class="delimiter">'''</span></span>
+
+<span class="keyword">from</span> <span class="include">argparse</span> <span class="keyword">import</span> <span class="include">ArgumentParser</span>
+<span class="keyword">import</span> <span class="include">xml.etree.cElementTree</span> <span class="keyword">as</span> ET
+<span class="keyword">from</span> <span class="include">cStringIO</span> <span class="keyword">import</span> <span class="include">StringIO</span>
+<span class="keyword">import</span> <span class="include">random</span>
+<span class="keyword">import</span> <span class="include">sys</span>
+<span class="keyword">import</span> <span class="include">zipfile</span>
+
+<span class="keyword">def</span> <span class="function">parse_arguments</span>():
+    <span class="comment"># define command line arguments</span>
+    parser = ArgumentParser(description=<span class="string"><span class="delimiter">'</span><span class="content">Command line parser for sample Web Service Shell handler.</span><span class="delimiter">'</span></span>)
+    parser.add_argument(<span class="string"><span class="delimiter">'</span><span class="content">--format</span><span class="delimiter">'</span></span>, help=<span class="string"><span class="delimiter">"</span><span class="content">Type of data requested. Choose from 'text', 'xml', and 'zip'</span><span class="delimiter">"</span></span>)
+    parser.add_argument(<span class="string"><span class="delimiter">'</span><span class="content">--num_values</span><span class="delimiter">'</span></span>, help=<span class="string"><span class="delimiter">"</span><span class="content">The number of random values that the program should return. Max of 10.</span><span class="delimiter">"</span></span>) 
+    args = parser.parse_args()
+    <span class="keyword">return</span> args
+
+<span class="keyword">def</span> <span class="function">get_text</span>(num):
+    <span class="docstring"><span class="delimiter">'''</span><span class="content">Return a list of random numbers between 0 and 99.</span><span class="content">
+</span><span class="content">       @param num integer: the number of random values </span><span class="content">
+</span><span class="content">       to produce</span><span class="content">
+</span><span class="content">    </span><span class="delimiter">'''</span></span>
+    <span class="keyword">return</span> <span class="string"><span class="delimiter">"</span><span class="content">, </span><span class="delimiter">"</span></span>.join([<span class="predefined">str</span>(random.randint(<span class="integer">0</span>, <span class="integer">100</span>)) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="predefined">xrange</span>(num)])
+
+<span class="keyword">def</span> <span class="function">get_xml</span>(num):
+    <span class="docstring"><span class="delimiter">'''</span><span class="content">Return a XML structure of random numbers between 0 and 99.</span><span class="content">
+</span><span class="content">       @param num integer: the number of random values </span><span class="content">
+</span><span class="content">       to produce</span><span class="content">
+</span><span class="content">    </span><span class="delimiter">'''</span></span>
+    root = ET.Element(<span class="string"><span class="delimiter">"</span><span class="content">root</span><span class="delimiter">"</span></span>)
+    values = ET.SubElement(root, <span class="string"><span class="delimiter">"</span><span class="content">values</span><span class="delimiter">"</span></span>)
+    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="predefined">xrange</span>(num):
+        rand_val = <span class="predefined">str</span>(random.randint(<span class="integer">0</span>, <span class="integer">100</span>))
+        ET.SubElement(values, <span class="string"><span class="delimiter">"</span><span class="content">field_{0}</span><span class="delimiter">"</span></span>.format(i), name=<span class="string"><span class="delimiter">"</span><span class="content">value_{0}</span><span class="delimiter">"</span></span>.format(rand_val)).text = rand_val
+    tree = ET.ElementTree(root)
+    st = StringIO()
+    tree.write(st)
+    <span class="keyword">return</span> st.getvalue() <span class="comment">#return the XML file as a string</span>
+
+<span class="keyword">def</span> <span class="function">get_zip</span>(num):
+    <span class="docstring"><span class="delimiter">'''</span><span class="content">Return a zip file archive containing files with</span><span class="content">
+</span><span class="content">       up to 10 comma separated random numbers in each file </span><span class="content">
+</span><span class="content">       between 0 and 99. Files will be created as needed depending </span><span class="content">
+</span><span class="content">       on the number of values requested.</span><span class="content">
+</span><span class="content">       @param num integer: the number of random values </span><span class="content">
+</span><span class="content">       to produce</span><span class="content">
+</span><span class="content">    </span><span class="delimiter">'''</span></span>
+    stio = StringIO()
+    idx = <span class="integer">0</span>
+    <span class="keyword">with</span> zipfile.ZipFile(stio, mode=<span class="string"><span class="delimiter">'</span><span class="content">w</span><span class="delimiter">'</span></span>, compression=zipfile.ZIP_STORED,allowZip64=<span class="predefined-constant">True</span>) <span class="keyword">as</span> z:
+        <span class="keyword">while</span> num &gt; <span class="integer">0</span>:
+            <span class="keyword">if</span> num &gt;= <span class="integer">10</span>:
+                z.writestr(<span class="string"><span class="delimiter">'</span><span class="content">file_{0}</span><span class="delimiter">'</span></span>.format(idx), get_text(<span class="integer">10</span>))
+                num = num - <span class="integer">10</span>
+            <span class="keyword">else</span>: 
+                z.writestr(<span class="string"><span class="delimiter">'</span><span class="content">file_{0}</span><span class="delimiter">'</span></span>.format(idx), get_text(num))
+                num = <span class="integer">0</span>
+            idx = idx + <span class="integer">1</span>
+    <span class="keyword">return</span> stio.getvalue()
+
+<span class="keyword">if</span> __name__ == <span class="string"><span class="delimiter">'</span><span class="content">__main__</span><span class="delimiter">'</span></span>:
+    args = parse_arguments()
+    num_values = <span class="predefined">int</span>(args.num_values)
+    <span class="keyword">if</span> (num_values &lt; <span class="integer">1</span>) <span class="keyword">or</span> (num_values &gt; <span class="integer">100</span>): 
+        <span class="comment">#Throw an exception if the requested number of values exceeds 100</span>
+        sys.stderr.write(<span class="string"><span class="delimiter">"</span><span class="content">The requested number of values must be between 1 and 100</span><span class="delimiter">"</span></span>)
+        sys.exit(<span class="integer">3</span>)
+    <span class="comment">#Handle the request for the requested format type</span>
+    <span class="keyword">if</span> args.format.lower() == <span class="string"><span class="delimiter">"</span><span class="content">text</span><span class="delimiter">"</span></span>:
+        sys.stdout.write(get_text(num_values))
+    <span class="keyword">elif</span> args.format.lower() == <span class="string"><span class="delimiter">"</span><span class="content">xml</span><span class="delimiter">"</span></span>:
+        sys.stdout.write(get_xml(num_values))
+    <span class="keyword">elif</span> args.format.lower() == <span class="string"><span class="delimiter">"</span><span class="content">zip</span><span class="delimiter">"</span></span>:
+        sys.stdout.write(get_zip(num_values))
+</span></code></pre>
+</div>
+
+
+<fieldset class="collapsible collapsed">
+  <legend onclick="toggleFieldset(this);">Files</legend>
+  <div style="display: none;">
+
+  
+  
+</div>
+</fieldset>
+
+
+
+
+         
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2018 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+ 
+
+
+</body></html>

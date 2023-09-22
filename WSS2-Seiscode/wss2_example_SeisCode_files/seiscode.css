@@ -1,0 +1,65 @@
+#header .seiscode-icon {
+    height: 32px;
+    padding: 0 4px;
+    vertical-align: top;
+}
+
+/* Better left-right split on various pages */
+.controller-projects.action-show .splitcontentleft,
+.controller-welcome.action-index .splitcontentleft {
+    width: 64%;
+}
+.controller-projects.action-show .splitcontentright,
+.controller-welcome.action-index .splitcontentright {
+    width: 34%;
+}
+
+/* No sidebar on project page */
+.controller-projects.action-show #sidebar {
+    display: none;
+}
+.controller-projects.action-show #content {
+    width: auto;
+}
+
+.project-homepage {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* code and links in wiki pages are bold */
+.wiki code {
+    font-weight: bold;
+}
+.wiki a {
+    font-weight: bold;
+}
+
+/**
+ * List whose items have block-level margins.
+ */
+.wiki .block-list > li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/* Project listings under a category (on the home page) */
+.cat_projects {
+    list-style: none;
+    padding: 0;
+}
+/* Based on .box class */
+.cat_projects > li {
+    background-color: #F6F6F6;
+    border: 1px solid #E4E4E4;
+    color: #505050;
+    display: inline-block;
+    line-height: 1.5em;
+    margin-bottom: 4px;
+    padding: 0 6px;
+}
+
+/* "Unversioned" table header in the file listings */
+.files-unversioned {
+    color: #999;
+}
